@@ -16,25 +16,24 @@ public class Deck
     }
     
     Collections.shuffle(playDeck);
-        
-
+    
     }
 
     public static void main(String args[]) { 
         
-    Deck myDeck = new Deck();
+//    Deck myDeck = new Deck();
 
     
-    for(int i = 0; i < myDeck.playDeck.size(); i++){
-        
-        //System.out.println(myDeck.playDeck.get(i));
+//     for(int i = 0; i < myDeck.playDeck.size(); i++){
+//         
+//         //System.out.println(myDeck.playDeck.get(i));
+//     
+//     }
     
-    }
-    
-    myDeck.getCard();
-    myDeck.getCard();
-    myDeck.getCard();
-    System.out.println(myDeck.playDeck.size());
+//     myDeck.getCard();
+//     myDeck.getCard();
+//     myDeck.getCard();
+//     System.out.println(myDeck.playDeck.size());
     
     }
     public Card getCard(){
