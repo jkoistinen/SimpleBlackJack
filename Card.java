@@ -1,4 +1,4 @@
-public class Card
+public class Card implements Comparable<Card>
 {
 
     public enum Suit {
@@ -46,6 +46,11 @@ public class Card
     public Card(Rank rank, Suit suit) {
         this.rank = rank;
         this.suit = suit;
+    }
+    
+    public int compareTo(Card other)
+    {
+        return rank.compareTo(other.rank);
     }
 
 }

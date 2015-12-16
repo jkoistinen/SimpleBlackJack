@@ -22,7 +22,7 @@ public class Deck
     public Card getCard(){
         Card card = playDeck.get(0);
         playDeck.remove(0);
-        System.out.println("I will return:"+ card);
+        //System.out.println("I will return:"+ card);
         return card;
     }
 }

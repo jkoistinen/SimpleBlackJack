@@ -17,7 +17,34 @@ public class Game
     
     Deck myDeck = new Deck(); //create a pre-shuffled deck of cards
     
-    myDeck.getCard();
+    Card DealerCard = myDeck.getCard();
+    Card PlayerCard = myDeck.getCard();
+    
+    System.out.println("Dealer got:"+DealerCard);
+    System.out.println("Player got:"+PlayerCard);
+    
+    int result = DealerCard.compareTo(PlayerCard);
+    
+    if ( result > 0 ) {
+    
+        System.out.println("Dealer won!");
+    
+    }
+    
+    if ( result < 0 ) {
+    
+        System.out.println("Player won!");
+    
+    }
+    
+    if ( result == 0 ) {
+    
+        System.out.println("Both are winners!");
+    
+    }
+    
+    // 0 == equal
+    // > 0 == myDeck.getCard().compareTo(myDeck.getCard()
    
     }
 }
