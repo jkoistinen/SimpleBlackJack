@@ -15,7 +15,8 @@ public class Game
 
     public static void main(String args[]) {
     
-    Deck myDeck = new Deck(); //creates a pre-shuffled deck of cards
+    Deck myDeck = new Deck(); //creates deck of cards
+    myDeck.shuffle(); //shuffle your deck of cards
     
     Card DealerCard = myDeck.getCard();
     Card PlayerCard = myDeck.getCard();
@@ -42,9 +43,6 @@ public class Game
         System.out.println("Both are winners!");
     
     }
-    
-    // 0 == equal
-    // > 0 == myDeck.getCard().compareTo(myDeck.getCard()
-   
+       
     }
 }
