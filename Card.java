@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Card
 {
 
@@ -35,42 +33,19 @@ public class Card
        } 
     
 }
-    private final Rank rank;
-    private final Suit suit;
+    public final Rank rank;
+    public final Suit suit;
     
     public Rank rank() { return rank; }
     public Suit suit() { return suit; }
-    public String toString() { return rank + " of " + suit; }
-    
-    private static final List<Card> playDeck = new ArrayList<Card>();
+    public String toString() { return suit +" "+ rank; }
     
     /**
      * Constructor for objects of class Card
      */
-    private Card(Rank rank, Suit suit) {
+    public Card(Rank rank, Suit suit) {
         this.rank = rank;
         this.suit = suit;
     }
-    
-    public static void main(String args[]) {
 
-    //Card myCard = new Card(2, "SPADER");
-    Collections.shuffle(playDeck);
-        for(Suit s : Suit.values()){
-             for(Rank r : Rank.values()) {
-                 System.out.println( s +" "+ r + " har värdet " + r.showValue() );
-                 playDeck.add(new Card(r, s));
-                }
-    }
-    
-    System.out.println(playDeck.size());
-    playDeck.remove(0);
-    System.out.println(playDeck.size());
-    System.out.println(playDeck.get(0));
-    playDeck.remove(0);
-    System.out.println(playDeck.get(0));
-    
-    
-                    
-   }
 }
