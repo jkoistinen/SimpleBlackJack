@@ -1,7 +1,6 @@
 public class Game
 {
     // instance variables
-    private int x;
     private int scorewon;
 
     /**
@@ -10,15 +9,15 @@ public class Game
     public Game()
     {
         // initialise instance variables
-        x = 0;
+        
         scorewon = 21; //If Player or Dealer reaches this number the game is over.
     }
 
     public static void main(String args[]) {
-    Deck myDeck = new Deck();
+    
+    Deck myDeck = new Deck(); //create a pre-shuffled deck of cards
     
     myDeck.getCard();
-    myDeck.getCard();
-    myDeck.getCard();
+   
     }
 }
