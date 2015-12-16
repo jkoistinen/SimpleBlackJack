@@ -15,7 +15,7 @@ public class Game
 
     public static void main(String args[]) {
     
-    Deck myDeck = new Deck(); //create a pre-shuffled deck of cards
+    Deck myDeck = new Deck(); //creates a pre-shuffled deck of cards
     
     Card DealerCard = myDeck.getCard();
     Card PlayerCard = myDeck.getCard();

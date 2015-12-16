@@ -23,7 +23,7 @@ public class Card implements Comparable<Card>
         DAM (10),
         KUNG (10);
         
-        int value;
+       int value;
        Rank(int v) {
           value = v;
        }
@@ -50,7 +50,9 @@ public class Card implements Comparable<Card>
     
     public int compareTo(Card other)
     {
-        return rank.compareTo(other.rank);
+        int result = rank.showValue() - other.rank.showValue();
+
+        return result;
     }
 
 }
