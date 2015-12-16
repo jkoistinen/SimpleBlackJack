@@ -23,6 +23,15 @@ public class Person
     {
         score = score + 1;
     }
+    public void setScore(int givenscore)
+    {
+        score = givenscore;
+    }
+    
+    public int getScore()
+    {
+        return score;
+    }
     
     public void incrementGamesWon()
     {
