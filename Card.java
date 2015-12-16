@@ -52,7 +52,7 @@ public class Card implements Comparable<Card>
 
     public Suit suit() { return suit; }
 
-    public String toString() { return suit +" "+ rank; }
+    public String toString() { return suit +" "+ rank+" "+"("+rank.showValue()+")"; }
 
     /**
      * Constructor for objects of class Card
