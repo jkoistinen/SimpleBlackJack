@@ -15,10 +15,11 @@ public class Deck
                 }
     }
     
-    Collections.shuffle(playDeck);
-    
     }
-
+    public void shuffle() {
+    Collections.shuffle(playDeck);
+    }
+   
     public Card getCard(){
         Card card = playDeck.get(0);
         playDeck.remove(0);
