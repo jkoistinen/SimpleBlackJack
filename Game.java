@@ -50,10 +50,9 @@ public class Game
     Card card = myDeck.getCard();
     System.out.println( "You got: "+card );
     //add points to Player-object
-    myPlayer.addScore(card);
+    myPlayer.addScore(card.getValue());
+    System.out.println( "Your total is now: "+myPlayer.getScore());
     
-    
-    System.out.println( "Your total is now:");
     System.out.println( "H(hit),S(stop) or Q(quit)");
     Scanner keyboard = new Scanner(System. in );
     String choice = keyboard.next().trim().toUpperCase();

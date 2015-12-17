@@ -61,7 +61,10 @@ public class Card implements Comparable<Card>
         this.rank = rank;
         this.suit = suit;
     }
-
+    public int getValue() {
+        int value = rank.showValue();
+        return value;
+    }
     public int compareTo(Card other)
     {
         int result = rank.showValue() - other.rank.showValue();
