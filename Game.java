@@ -42,6 +42,12 @@ public class Game
     if(input.equals("Y")){
     startGame = true;
     System.out.println("Starting new game...");
+    
+    //Dealer shows first card for every new round.
+    Card dealercard = myDeck.getCard();
+    myDealer.addScore(dealercard.getValue());
+    System.out.println("Dealer got: "+dealercard);
+    
     } else if(input.equals("N")){
     startGame = false;
     System.out.println("Bye!");
@@ -71,6 +77,12 @@ public class Game
     myPlayer.clearScore();
     myDealer.clearScore();
     //System.out.println(startGame);
+    
+    //Dealer shows first card for every new round.
+    Card dealercard = myDeck.getCard();
+    myDealer.addScore(dealercard.getValue());
+    System.out.println("Dealer got: "+dealercard);
+    
     startGame = true;
     } else if(in.equals("N")){ 
     startGame = false;
@@ -82,11 +94,7 @@ public class Game
     
     //is startGame a good name ?
     while(startGame == true){
-        
-    //Dealer shows first card
-    //Card dealercard = myDeck.getCard();
-    //System.out.println("Dealer got: "+dealercard);
-    
+     
     Card playercard = myDeck.getCard();
     System.out.println( "Player got: "+playercard );
     //add points to Player-object
