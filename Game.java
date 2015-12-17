@@ -24,9 +24,12 @@ public class Game
     Dealer myDealer = new Dealer();
     Player myPlayer = new Player();
     
+    boolean startGame = false;
+    boolean dealersTurn = false;
+    boolean newRound = false;
+    boolean quitGame = false;
+    
     System.out.println("Welcome to BlackJackCasino");
-    
-    
     System.out.println("Your dealer is: "+myDealer.name);
     System.out.println("Instructions for playing: H(hit),S(stop) or Q(quit)");
     System.out.print("Start new game? (Y/N) ");
@@ -34,13 +37,8 @@ public class Game
     //scanner stuff capture the y or n
     //String input = keyboard.next().trim().toUpperCase();
     
-    boolean startGame = false;
-    boolean dealersTurn = false;
-    boolean newRound = false;
-    boolean quitGame = false;
-    
     String input = "Y";
-    
+        
     if(input.equals("Y")){
     startGame = true;
     System.out.println("Starting new game...");
