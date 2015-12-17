@@ -27,7 +27,10 @@ public class Person
     {
         score = givenscore;
     }
-    
+    public void addScore(int givenscore)
+    {
+        score = score + givenscore;
+    }
     public int getScore()
     {
         return score;

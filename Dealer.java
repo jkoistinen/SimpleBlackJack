@@ -10,7 +10,7 @@ public class Dealer extends Person
     {
         // initialise instance variables
         
-        name = "Dealer";
+        name = "Bob";
         hitlimit = 17;
     }
 }
