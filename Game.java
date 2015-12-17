@@ -76,13 +76,16 @@ public class Game
     startGame = false;
     newRound = false;
     quitGame = true;
-    break;
     }
     
     }
     
     //is startGame a good name ?
     while(startGame == true){
+        
+    //Dealer shows first card
+    //Card dealercard = myDeck.getCard();
+    //System.out.println("Dealer got: "+dealercard);
     
     Card playercard = myDeck.getCard();
     System.out.println( "Player got: "+playercard );
