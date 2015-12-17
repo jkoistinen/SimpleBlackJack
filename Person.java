@@ -27,6 +27,10 @@ public class Person
     {
         score = givenscore;
     }
+    public void clearScore()
+    {
+        score = 0;
+    }
     public void addScore(int givenscore)
     {
         score = score + givenscore;
@@ -39,5 +43,10 @@ public class Person
     public void incrementGamesWon()
     {
         gameswon = gameswon + 1;
+    }
+    
+    public int getGamesWon()
+    {
+        return gameswon;
     }
 }

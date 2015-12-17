@@ -29,7 +29,7 @@ public class Game
     
     System.out.println("Your dealer is: "+myDealer.name);
     System.out.println("Instructions for playing: H(hit),S(stop) or Q(quit)");
-    System.out.println("Start new game? y/n");
+    System.out.print("Start new game? (Y/N) ");
     
     //scanner stuff capture the y or n
     //String input = keyboard.next().trim().toUpperCase();
@@ -37,6 +37,7 @@ public class Game
     boolean startGame = false;
     boolean dealersTurn = false;
     boolean newRound = false;
+    boolean quitGame = false;
     
     String input = "Y";
     
@@ -51,27 +52,50 @@ public class Game
     
     //nested while loop for game starts here
     while(true) {
-    if(newRound){
-    System.out.print("Would you like to play a new round? y/n");
+        
+    if(quitGame == true) {
+    //Show total gameswon scores for both Player and Dealer and announce winner!
+    System.out.println( "Player won: "+myPlayer.getGamesWon() );
+    System.out.println( "Dealer won: "+myDealer.getGamesWon() );
+    System.out.println("Bye!");
+    break;
     }
     
-//     if(input.equals("Y")){
-//     
-//     }
-        
+    if(newRound){
+    System.out.println("------------------------------------------");
+    System.out.print("Would you like to play a new round? (Y/N) ");
+    Scanner keyboard = new Scanner(System. in );
+    String in = keyboard.next().trim().toUpperCase();
+    
+    if(in.equals("Y")){
+    newRound = false;
+    //clear both Player and Dealer scores for the new round.
+    myPlayer.clearScore();
+    myDealer.clearScore();
+    //System.out.println(startGame);
+    startGame = true;
+    } else if(in.equals("N")){ 
+    startGame = false;
+    newRound = false;
+    quitGame = true;
+    break;
+    }
+    
+    }
+    
     //is startGame a good name ?
     while(startGame == true){
     
     Card playercard = myDeck.getCard();
-    System.out.println( "You got: "+playercard );
+    System.out.println( "Player got: "+playercard );
     //add points to Player-object
     myPlayer.addScore(playercard.getValue());
-    System.out.println( "Your total is now: "+myPlayer.getScore());
+    System.out.println( "Players total is now: "+myPlayer.getScore());
     
     //check that we did not go over int scorewon
     if(myPlayer.getScore() > myGame.scorewon){
     System.out.println("Busted! Point to Dealer!");
-    //and also give the actual point
+    myDealer.incrementGamesWon();
     newRound = true;
     break;
     }
@@ -79,10 +103,10 @@ public class Game
     //check if we got blackjack
      if(myPlayer.getScore() == myGame.scorewon){
     System.out.println("Win! Point to Player!");
-    //and also give the actual point
+    myPlayer.incrementGamesWon();
     }
     
-    System.out.println( "H(hit),S(stop) or Q(quit)");
+    System.out.print( "H(hit),S(stop) or Q(quit) ");
     Scanner keyboard = new Scanner(System. in );
     String choice = keyboard.next().trim().toUpperCase();
     if(choice.equals("H")){
@@ -96,10 +120,9 @@ public class Game
     
     else if(choice.equals("Q")){
     startGame = false;
+    newRound = false;
+    quitGame = true;
     break;
-    //print out both Player and Dealer total times won
-    //check who has highest gameswon and announce the winner (or tie)!
-    
     }
     }
     
@@ -118,7 +141,7 @@ public class Game
         //check that we did not go over int scorewon
         if(myDealer.getScore() > myGame.scorewon){
         System.out.println("Busted! Point to Player!");
-        //and also give the actual point
+        myPlayer.incrementGamesWon();
         dealersTurn = false;
         newRound = true;
         break;
@@ -127,7 +150,7 @@ public class Game
         //check if Dealer got blackjack
          if(myDealer.getScore() == myGame.scorewon){
         System.out.println("Win! Point to Dealer!");
-        //and also give the actual point
+        myDealer.incrementGamesWon();
         newRound = true;
         }
         
@@ -137,7 +160,7 @@ public class Game
         dealersTurn = true;
         } else if(myDealer.getScore() > myPlayer.getScore() && myDealer.getScore() <= myGame.scorewon ){
         System.out.println("Dealer won!");
-        //and also give the actual point
+        myDealer.incrementGamesWon();
         dealersTurn = false;
         newRound = true;
         break;
