@@ -59,7 +59,7 @@ public class Game
     break;
     }
     
-    if(newRound){
+    if(newRound == true){
     System.out.println("------------------------------------------");
     System.out.print("Would you like to play a new round? (Y/N) ");
     Scanner keyboard = new Scanner(System. in );
