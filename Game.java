@@ -166,8 +166,8 @@ public class Game
         }
         
         //Dealer will try and pick until its over the Player score or will stop at 
-        // Dealers hitlimit
-        if(myDealer.getScore() < myPlayer.getScore()){
+        // Dealer has a hitlimit of 17, he needs to keep on picking cards until he has atleast 17.
+        if(myDealer.getScore() < myPlayer.getScore() || myDealer.getScore() < myDealer.hitlimit ){
         dealersTurn = true;
         } else if(myDealer.getScore() > myPlayer.getScore() && myDealer.getScore() <= myGame.scorewon ){
         System.out.println("Dealer won!");
