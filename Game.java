@@ -113,6 +113,8 @@ public class Game
      if(myPlayer.getScore() == myGame.scorewon){
     System.out.println("Win! Point to Player!");
     myPlayer.incrementGamesWon();
+    newRound = true;
+    break;
     }
     
     System.out.print( "H(hit),S(stop) or Q(quit) ");
@@ -161,6 +163,7 @@ public class Game
         System.out.println("Win! Point to Dealer!");
         myDealer.incrementGamesWon();
         newRound = true;
+        break;
         }
         
         //Dealer will try and pick until its over the Player score or will stop at 
