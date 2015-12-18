@@ -178,24 +178,7 @@ public class Game
     }
     
 }
-//     myPlayer.setScore(10);
-//     int testscore = myPlayer.getScore();
-//     System.out.println(testscore);
-//     
-//     Card card = myDeck.getCard();
-//     
-//     System.out.println("Dealer gotXYZ:"+myDeck.getCard());
-//     
-//     //Two cards to Dealer
-//     
-//     
-//     Card DealerCard = myDeck.getCard();
-//     Card PlayerCard = myDeck.getCard();
-//     
-//     System.out.println("Dealer got:"+DealerCard);
-//     System.out.println("Player got:"+PlayerCard);
-//     
-//     //int result = DealerCard.compareTo(PlayerCard);
+
 //     int result = myDeck.getCard().compareTo(myDeck.getCard());
 //     
 //     if ( result > 0 ) {
