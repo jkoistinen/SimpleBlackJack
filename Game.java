@@ -165,7 +165,7 @@ public class Game
         break;
         }
         
-        //Dealer will try and pick until its over the Player score or will stop at 
+        //Dealer will try and pick until its over the Player score
         // Dealer has a hitlimit of 17, he needs to keep on picking cards until he has atleast 17.
         if(myDealer.getScore() < myPlayer.getScore() || myDealer.getScore() < myDealer.hitlimit ){
         dealersTurn = true;
