@@ -92,7 +92,6 @@ public class Game
     
     }
     
-    //is startGame a good name ?
     while(startGame == true){
      
     Card playercard = myDeck.getCard();
