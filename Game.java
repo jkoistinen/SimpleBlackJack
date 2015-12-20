@@ -32,12 +32,14 @@ public class Game
     System.out.println("Welcome to BlackJackCasino");
     System.out.println("Your dealer is: "+myDealer.name);
     System.out.println("Instructions for playing: H(hit),S(stop) or Q(quit)");
+    
+    Scanner startgame = new Scanner(System.in);
     System.out.print("Start new game? (Y/N) ");
-    
-    //scanner stuff capture the y or n
-    //String input = keyboard.next().trim().toUpperCase();
-    
-    String input = "Y";
+    while (!startgame.hasNext("[ynYN]")) {
+        System.out.print("Type in Y or N ");
+        startgame.next();
+    }
+    String input = startgame.next().trim().toUpperCase();
         
     if(input.equals("Y")){
     startGame = true;
@@ -69,6 +71,10 @@ public class Game
     System.out.println("------------------------------------------");
     System.out.print("Would you like to play a new round? (Y/N) ");
     Scanner keyboard = new Scanner(System. in );
+    while (!keyboard.hasNext("[ynYN]")) {
+        System.out.print("Type in Y or N ");
+        keyboard.next();
+    }
     String in = keyboard.next().trim().toUpperCase();
     
     if(in.equals("Y")){
@@ -118,6 +124,10 @@ public class Game
     
     System.out.print( "H(hit),S(stop) or Q(quit) ");
     Scanner keyboard = new Scanner(System. in );
+    while (!keyboard.hasNext("[hsqHSQ]")) {
+        System.out.print("Type in H, S or Q ");
+        keyboard.next();
+    }
     String choice = keyboard.next().trim().toUpperCase();
     if(choice.equals("H")){
     startGame = true;
