@@ -54,7 +54,7 @@ public class Game
     } else if(input.equals("N")){
     startGame = false;
     System.out.println("Bye!");
-
+    System.exit(0); // 0 is not a error, user choose to exit. IF you want to exit because of error set it to 1.
     }
 
     //nested while loop for game starts here
