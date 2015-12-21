@@ -14,17 +14,20 @@ public class Deck
                  playDeck.add(new Card(r, s));
                 }
     }
-    
+
     }
     public void shuffle() {
     Collections.shuffle(playDeck);
     }
-   
-    public Card getCard(){
-        Card card = playDeck.get(0);
-        playDeck.remove(0);
-        //System.out.println("I will return:"+ card);
-        return card;
+    
+    public Card getCard() throws IndexOutOfBoundsException {
+    if(playDeck.size() < 1 ) {
+        throw new IndexOutOfBoundsException("Om du eller någon närstående har problem med sitt spelande kan du kontakta Stödlinjen för spelare och anhöriga på telefonnummer 020 81 91 00 eller via www.stodlinjen.se. ");
     }
+    Card card = playDeck.get(0);
+    playDeck.remove(0);
+    return card;
 }
 
+
+}

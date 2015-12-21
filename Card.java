@@ -2,9 +2,9 @@ public class Card implements Comparable<Card>
 {
 
     public enum Suit {
-        SPADER, 
-        HJÄRTER, 
-        RUTER, 
+        SPADER,
+        HJÄRTER,
+        RUTER,
         KLÖVER;
     }
 
@@ -42,7 +42,7 @@ public class Card implements Comparable<Card>
 
         int showValue() {
             return value;
-        } 
+        }
 
     }
     public final Rank rank;
