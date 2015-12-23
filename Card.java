@@ -1,4 +1,4 @@
-public class Card implements Comparable<Card>
+public class Card
 {
 
     public enum Suit {
@@ -64,12 +64,6 @@ public class Card implements Comparable<Card>
     public int getValue() {
         int value = rank.showValue();
         return value;
-    }
-    public int compareTo(Card other)
-    {
-        int result = rank.showValue() - other.rank.showValue();
-
-        return result;
     }
 
 }
