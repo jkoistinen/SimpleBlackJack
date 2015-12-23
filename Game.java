@@ -141,7 +141,7 @@ public class Game
     }
 
     //check if we got blackjack
-     if(myPlayer.getScore() == myGame.scorewon){
+    if(myPlayer.getScore() == myGame.scorewon){
     System.out.println("Win! Point to Player!");
     myPlayer.incrementGamesWon();
     newRound = true;
