@@ -1,11 +1,11 @@
-public class Person
+public class Person implements Comparable<Person>
 {
     // instance variables
     private int gameswon;
     private int score; //reset every new game
-    
+
     public int hitlimit;
-    
+
     public String name;
 
     /**
@@ -39,14 +39,21 @@ public class Person
     {
         return score;
     }
-    
+
     public void incrementGamesWon()
     {
         gameswon = gameswon + 1;
     }
-    
+
     public int getGamesWon()
     {
         return gameswon;
+    }
+
+    public int compareTo(Person other)
+    {
+        int result = getGamesWon() - other.getGamesWon();
+
+        return result;
     }
 }
