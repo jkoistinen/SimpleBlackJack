@@ -2,7 +2,7 @@ public class Person implements Comparable<Person>
 {
     // instance variables
     private int gameswon;
-    private int score; //reset every new game
+    private int score; //reset every new round
 
     public int hitlimit;
 
