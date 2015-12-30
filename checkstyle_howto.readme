@@ -1,0 +1,2 @@
+java -jar checkstyle-6.14-all.jar -c /google_checks.xml Person.java
+java -jar checkstyle-6.14-all.jar -c /sun_checks.xml Person.java
