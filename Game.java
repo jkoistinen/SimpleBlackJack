@@ -199,7 +199,6 @@ public class Game {
           newRound = true;
           break;
         }
-
       }
     }
   }
