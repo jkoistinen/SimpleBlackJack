@@ -157,7 +157,7 @@ public class Game {
           quitGame = true;
           break;
         }
-      }
+      } //END while
 
       if (dealersTurn == true) {
         System.out.println("Dealers turn...");
@@ -199,7 +199,7 @@ public class Game {
           newRound = true;
           break;
         }
-      }
-    }
+      } //END while
+    } //END while
   }
 }
