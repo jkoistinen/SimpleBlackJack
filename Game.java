@@ -126,6 +126,7 @@ public class Game {
           System.out.println("Busted! Point to Dealer!");
           myDealer.incrementGamesWon();
           newRound = true;
+          dealersTurn = false;
           break;
         }
 
