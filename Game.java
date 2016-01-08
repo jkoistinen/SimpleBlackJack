@@ -34,7 +34,7 @@ public class Game {
     Scanner startgame = new Scanner(System.in);
     System.out.print("Start new game? (Y/N) ");
     while (!startgame.hasNext("[ynYN]")) {
-      System.out.print("Type in Y or N ");
+      System.out.print("Type in Y or N: ");
       startgame.next();
     }
     String input = startgame.next().trim().toUpperCase();
@@ -86,7 +86,7 @@ public class Game {
         System.out.print("Would you like to play a new round? (Y/N) ");
         Scanner keyboard = new Scanner(System. in );
         while (!keyboard.hasNext("[ynYN]")) {
-          System.out.print("Type in Y or N ");
+          System.out.print("Type in Y or N: ");
           keyboard.next();
         }
         String in = keyboard.next().trim().toUpperCase();
@@ -132,9 +132,11 @@ public class Game {
 
         //check if we got blackjack
         if (myPlayer.getScore() == myGame.scorewon) {
-          System.out.println("Win! Point to Player!");
-          myPlayer.incrementGamesWon();
+          //System.out.println("Win! Point to Player!");
+          //myPlayer.incrementGamesWon();
+          System.out.println("Player got 21, lets see what the dealer gets ...");
           newRound = true;
+          dealersTurn = true;
           break;
         }
 
@@ -185,6 +187,7 @@ public class Game {
         if (myDealer.getScore() == myGame.scorewon) {
           System.out.println("Win! Point to Dealer!");
           myDealer.incrementGamesWon();
+          dealersTurn = false;
           newRound = true;
           break;
         }
