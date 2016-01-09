@@ -44,10 +44,12 @@ public class Game {
       System.out.println("Starting new game...");
 
       //Dealer shows first card for every new round.
-      Card dealercard = myDeck.getCard();
-      myDealer.addScore(dealercard.getValue());
-      System.out.println("Dealer got: " + dealercard);
+      myDealer.addCard( myDeck.getCard() );
+      myDealer.addCard( myDeck.getCard() );
+
+      System.out.println("Dealer got: " + myDealer.getCard());
       System.out.println("Dealer got: HIDDEN");
+      System.out.println("Dealers total is now: " + myDealer.getScore());
 
     } else if (input.equals("N")) {
       startGame = false;
@@ -75,11 +77,13 @@ public class Game {
           myDealer.clearScore();
           //System.out.println(startGame);
 
-          //Dealer shows first card for every new round.
-          Card dealercard = myDeck.getCard();
-          myDealer.addScore(dealercard.getValue());
-          System.out.println("Dealer got: " + dealercard);
+          //Get two cards from CardDeck and put them in Dealer handDeck.
+          myDealer.addCard( myDeck.getCard() );
+          myDealer.addCard( myDeck.getCard() );
+
+          System.out.println("Dealer got: " + myDealer.getCard());
           System.out.println("Dealer got: HIDDEN");
+          System.out.println( "Dealers total is now: " + myDealer.getScore());
 
           startGame = true;
         } else if (in.equals("N")) {
@@ -115,10 +119,8 @@ public class Game {
 
       while (startGame == true) {
 
-        Card playercard = myDeck.getCard();
-        System.out.println( "Player got: " + playercard );
-        //add points to Player-object
-        myPlayer.addScore(playercard.getValue());
+        myPlayer.addCard( myDeck.getCard() );
+        System.out.println( "Player got: " + myPlayer.getCard() );
         System.out.println( "Players total is now: " + myPlayer.getScore());
 
         //check that we did not go over int scorewon
@@ -168,10 +170,8 @@ public class Game {
 
       while (dealersTurn == true) {
 
-        Card dealercard = myDeck.getCard();
-        System.out.println( "Dealer got: " + dealercard );
-        //add points to Dealer-object
-        myDealer.addScore(dealercard.getValue());
+        myDealer.addCard( myDeck.getCard() );
+        System.out.println( "Dealer got: " + myDealer.getCard() );
         System.out.println( "Dealers total is now: " + myDealer.getScore());
 
         //check that we did not go over int scorewon
