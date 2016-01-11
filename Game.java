@@ -43,13 +43,20 @@ public class Game {
       startGame = true;
       System.out.println("Starting new game...");
 
+      //clear both Player and Dealer scores for the new round.
+      myPlayer.clearScore();
+      myDealer.clearScore();
+
       //Dealer shows first card for every new round.
-      myDealer.addCard( myDeck.getCard() );
-      myDealer.addCard( myDeck.getCard() );
+      Card card1 = myDeck.getCard();
+      Card card2 = myDeck.getCard();
+
+      myDealer.addCard( card1 );
+      myDealer.addCard( card2 );
 
       System.out.println("Dealer got: " + myDealer.getCard());
       System.out.println("Dealer got: HIDDEN");
-      System.out.println("Dealers total is now: " + myDealer.getScore());
+      System.out.println("Dealers total is now: " + card1.getValue());
 
     } else if (input.equals("N")) {
       startGame = false;
@@ -75,15 +82,18 @@ public class Game {
           //clear both Player and Dealer scores for the new round.
           myPlayer.clearScore();
           myDealer.clearScore();
-          //System.out.println(startGame);
 
-          //Get two cards from CardDeck and put them in Dealer handDeck.
-          myDealer.addCard( myDeck.getCard() );
-          myDealer.addCard( myDeck.getCard() );
+          Card card1 = myDeck.getCard();
+          Card card2 = myDeck.getCard();
 
-          System.out.println("Dealer got: " + myDealer.getCard());
+          myDealer.addCard( card1 );
+          myDealer.addCard( card2 );
+
+          System.out.println("Dealer got: " + card1 );
           System.out.println("Dealer got: HIDDEN");
-          System.out.println( "Dealers total is now: " + myDealer.getScore());
+          System.out.println("Dealers total is now: " + card1.getValue() );
+
+
 
           startGame = true;
         } else if (in.equals("N")) {
@@ -119,9 +129,10 @@ public class Game {
 
       while (startGame == true) {
 
-        myPlayer.addCard( myDeck.getCard() );
-        System.out.println( "Player got: " + myPlayer.getCard() );
-        System.out.println( "Players total is now: " + myPlayer.getScore());
+        Card card1 = myDeck.getCard();
+        myPlayer.addCard( card1 );
+        System.out.println( "Player got: " + card1 );
+        System.out.println( "Players total is now: " + myPlayer.getScore() );
 
         //check that we did not go over int scorewon
         if (myPlayer.getScore() > myGame.scorewon) {
@@ -170,9 +181,9 @@ public class Game {
 
       while (dealersTurn == true) {
 
-        myDealer.addCard( myDeck.getCard() );
+        //Check second card (card2)
         System.out.println( "Dealer got: " + myDealer.getCard() );
-        System.out.println( "Dealers total is now: " + myDealer.getScore());
+        System.out.println( "Dealers total is now: " + myDealer.getScore() );
 
         //check that we did not go over int scorewon
         if (myDealer.getScore() > myGame.scorewon) {
@@ -196,6 +207,10 @@ public class Game {
         // Dealer has a hitlimit of 17, he needs to keep on picking cards until he has atleast 17.
         if (myDealer.getScore() < myPlayer.getScore() || myDealer.getScore() < myDealer.hitlimit ) {
           dealersTurn = true;
+
+          //add new card to Dealers handDeck
+          myDealer.addCard( myDeck.getCard() );
+
         } else if (myDealer.getScore() > myPlayer.getScore() && myDealer.getScore() <= myGame.scorewon ) {
           System.out.println("Dealer won!");
           myDealer.incrementGamesWon();
