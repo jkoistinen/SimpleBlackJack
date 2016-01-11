@@ -74,29 +74,6 @@ public class Game {
 
       }
 
-      if (quitGame == true) {
-        //Show total gameswon scores for both Player and Dealer!
-        System.out.println( "Player won: " + myPlayer.getGamesWon() );
-        System.out.println( "Dealer won: " + myDealer.getGamesWon() );
-
-        //Announce the winner
-        int result = myPlayer.compareTo(myDealer);
-        //System.out.println("RESULT:"+result);
-
-        if ( result > 0 ) {
-          System.out.println("Player won!");
-
-        } else if ( result < 0 ) {
-          System.out.println("Dealer won!");
-
-        } else if ( result == 0 ) {
-          System.out.println("Tie Game!");
-        }
-        System.out.println("Bye!");
-
-        break;
-      }
-
       while (startGame == true) {
 
         myPlayerHand.addCard(myDeck.getCard());
@@ -182,6 +159,29 @@ public class Game {
           break;
         }
       } //END while
+
+      if (quitGame == true) {
+        //Show total gameswon scores for both Player and Dealer!
+        System.out.println( "Player won: " + myPlayer.getGamesWon() );
+        System.out.println( "Dealer won: " + myDealer.getGamesWon() );
+
+        //Announce the winner
+        int result = myPlayer.compareTo(myDealer);
+        //System.out.println("RESULT:"+result);
+
+        if ( result > 0 ) {
+          System.out.println("Player won!");
+
+        } else if ( result < 0 ) {
+          System.out.println("Dealer won!");
+
+        } else if ( result == 0 ) {
+          System.out.println("Tie Game!");
+        }
+        System.out.println("Bye!");
+
+        break;
+      }
     } //END while
   }
 }
