@@ -16,18 +16,6 @@ public class Person implements Comparable<Person> {
     hitlimit = 15;
   }
 
-  // public void clearScore() {
-  //   score = 0;
-  // }
-  //
-  // public void addScore(int givenscore) {
-  //   score = score + givenscore;
-  // }
-  //
-  // public int getScore() {
-  //   return score;
-  // }
-
   public void incrementGamesWon() {
     gameswon = gameswon + 1;
   }

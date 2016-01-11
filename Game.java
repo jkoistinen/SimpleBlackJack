@@ -27,45 +27,19 @@ public class Game {
 
     boolean startGame = false;
     boolean dealersTurn = false;
-    boolean newRound = false;
+    boolean newRound = true;
     boolean quitGame = false;
 
     System.out.println("Welcome to BlackJackCasino");
     System.out.println("Your dealer is: " + myDealer.name);
     System.out.println("Instructions for playing: H(hit),S(stop) or Q(quit)");
 
-    Scanner startgame = new Scanner(System.in);
-    System.out.print("Start new game? (Y/N) ");
-    while (!startgame.hasNext("[ynYN]")) {
-      System.out.print("Type in Y or N: ");
-      startgame.next();
-    }
-    String input = startgame.next().trim().toUpperCase();
-
-    if (input.equals("Y")) {
-      startGame = true;
-      System.out.println("Starting new game...");
-
-      //Dealer shows first card for every new round.
-      myDealerHand.addCard(myDeck.getCard());
-      myDealerHand.addCard(myDeck.getCard());
-
-      System.out.println("Dealer got: " + myDealerHand.getCard());
-      System.out.println("Dealer got: HIDDEN");
-      System.out.println("Dealers total is now: " + myDealerHand.getScore());
-
-    } else if (input.equals("N")) {
-      startGame = false;
-      System.out.println("Bye!");
-      System.exit(0); // 0 is not a error, user choose to exit. IF you want to exit because of error set it to 1.
-    }
-
     //nested while loop for game starts here
     while (true) {
 
       if (newRound == true) {
         System.out.println("------------------------------------------");
-        System.out.print("Would you like to play a new round? (Y/N) ");
+        System.out.print("Play a new round? (Y/N) ");
         Scanner keyboard = new Scanner(System. in );
         while (!keyboard.hasNext("[ynYN]")) {
           System.out.print("Type in Y or N: ");
@@ -78,10 +52,14 @@ public class Game {
           //clear both Player and Dealer scores for the new round.
           myPlayerHand.clearScore();
           myDealerHand.clearScore();
-          //System.out.println(startGame);
 
-          //Dealer shows first card for every new round.
+          //Dealers 2 cards
           myDealerHand.addCard(myDeck.getCard());
+          myDealerHand.addCard(myDeck.getCard());
+
+          //Players 2 cards
+          myPlayerHand.addCard(myDeck.getCard());
+          myPlayerHand.addCard(myDeck.getCard());
 
           System.out.println("Dealer got: " + myDealerHand.getCard());
           System.out.println("Dealer got: HIDDEN");

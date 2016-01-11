@@ -30,5 +30,10 @@ public void clearScore(){
   handDeck.clear();
 
 }
+public int getSize(){
+  int size = handDeck.size();
+  return size;
+
+}
 
 }
