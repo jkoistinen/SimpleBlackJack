@@ -19,6 +19,9 @@ public class Game {
     Deck myDeck = new Deck(); //creates deck of cards
     myDeck.shuffle(); //shuffle your deck of cards
 
+    Hand myDealerHand = new Hand();
+    Hand myPlayerHand = new Hand();
+
     Dealer myDealer = new Dealer();
     Player myPlayer = new Player();
 
@@ -44,10 +47,12 @@ public class Game {
       System.out.println("Starting new game...");
 
       //Dealer shows first card for every new round.
-      Card dealercard = myDeck.getCard();
-      myDealer.addScore(dealercard.getValue());
-      System.out.println("Dealer got: " + dealercard);
+      myDealerHand.addCard(myDeck.getCard());
+      myDealerHand.addCard(myDeck.getCard());
+
+      System.out.println("Dealer got: " + myDealerHand.getCard());
       System.out.println("Dealer got: HIDDEN");
+      System.out.println("Dealers total is now: " + myDealerHand.getScore());
 
     } else if (input.equals("N")) {
       startGame = false;
@@ -71,15 +76,16 @@ public class Game {
         if (in.equals("Y")) {
           newRound = false;
           //clear both Player and Dealer scores for the new round.
-          myPlayer.clearScore();
-          myDealer.clearScore();
+          myPlayerHand.clearScore();
+          myDealerHand.clearScore();
           //System.out.println(startGame);
 
           //Dealer shows first card for every new round.
-          Card dealercard = myDeck.getCard();
-          myDealer.addScore(dealercard.getValue());
-          System.out.println("Dealer got: " + dealercard);
+          myDealerHand.addCard(myDeck.getCard());
+
+          System.out.println("Dealer got: " + myDealerHand.getCard());
           System.out.println("Dealer got: HIDDEN");
+          System.out.println("Dealers total is now: " + myDealerHand.getScore());
 
           startGame = true;
         } else if (in.equals("N")) {
@@ -115,14 +121,12 @@ public class Game {
 
       while (startGame == true) {
 
-        Card playercard = myDeck.getCard();
-        System.out.println( "Player got: " + playercard );
-        //add points to Player-object
-        myPlayer.addScore(playercard.getValue());
-        System.out.println( "Players total is now: " + myPlayer.getScore());
+        myPlayerHand.addCard(myDeck.getCard());
+        System.out.println( "Player got: " + myPlayerHand.getCard() );
+        System.out.println( "Players total is now: " + myPlayerHand.getScore() );
 
         //check that we did not go over int scorewon
-        if (myPlayer.getScore() > myGame.scorewon) {
+        if (myPlayerHand.getScore() > myGame.scorewon) {
           System.out.println("Busted! Point to Dealer!");
           myDealer.incrementGamesWon();
           newRound = true;
@@ -131,9 +135,7 @@ public class Game {
         }
 
         //check if we got blackjack
-        if (myPlayer.getScore() == myGame.scorewon) {
-          //System.out.println("Win! Point to Player!");
-          //myPlayer.incrementGamesWon();
+        if (myPlayerHand.getScore() == myGame.scorewon) {
           System.out.println("Player got 21, lets see what the dealer gets ...");
           newRound = true;
           dealersTurn = true;
@@ -168,14 +170,12 @@ public class Game {
 
       while (dealersTurn == true) {
 
-        Card dealercard = myDeck.getCard();
-        System.out.println( "Dealer got: " + dealercard );
-        //add points to Dealer-object
-        myDealer.addScore(dealercard.getValue());
-        System.out.println( "Dealers total is now: " + myDealer.getScore());
+        myDealerHand.addCard(myDeck.getCard());
+        System.out.println( "Dealer got: " + myDealerHand.getCard() );
+        System.out.println( "Dealers total is now: " + myDealerHand.getScore());
 
         //check that we did not go over int scorewon
-        if (myDealer.getScore() > myGame.scorewon) {
+        if (myDealerHand.getScore() > myGame.scorewon) {
           System.out.println("Busted! Point to Player!");
           myPlayer.incrementGamesWon();
           dealersTurn = false;
@@ -184,7 +184,7 @@ public class Game {
         }
 
         //check if Dealer got blackjack
-        if (myDealer.getScore() == myGame.scorewon) {
+        if (myDealerHand.getScore() == myGame.scorewon) {
           System.out.println("Win! Point to Dealer!");
           myDealer.incrementGamesWon();
           dealersTurn = false;
@@ -194,9 +194,9 @@ public class Game {
 
         //Dealer will try and pick until its over the Player score
         // Dealer has a hitlimit of 17, he needs to keep on picking cards until he has atleast 17.
-        if (myDealer.getScore() < myPlayer.getScore() || myDealer.getScore() < myDealer.hitlimit ) {
+        if (myDealerHand.getScore() < myPlayerHand.getScore() || myDealerHand.getScore() < myDealer.hitlimit ) {
           dealersTurn = true;
-        } else if (myDealer.getScore() > myPlayer.getScore() && myDealer.getScore() <= myGame.scorewon ) {
+        } else if (myDealerHand.getScore() > myPlayerHand.getScore() && myDealerHand.getScore() <= myGame.scorewon ) {
           System.out.println("Dealer won!");
           myDealer.incrementGamesWon();
           dealersTurn = false;
